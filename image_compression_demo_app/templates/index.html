@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Compression and Decompression</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          padding: 20px;
+      }
+      .container {
+          max-width: 800px;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+      }
+      h1 {
+          text-align: center;
+      }
+      .form-group {
+          margin-bottom: 15px;
+      }
+      label {
+          display: block;
+          margin-bottom: 5px;
+      }
+      input[type="file"], input[type="number"], button {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+      }
+      #jpeg_quality {
+          width: 97% !important;
+      }
+      .algorithm {
+          margin-bottom: 30px;
+      }
+      button {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #45a049;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Image Compression</h1>
+
+  <div class="algorithm">
+    <h2>Algorithm 1: RLE Compression</h2>
+    <form action="/rle-compress" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>Upload Image to Compress:</label>
+        <input type="file" name="image" required>
+      </div>
+      <button type="submit">Compress Image</button>
+    </form>
+
+    <form action="/rle-decompress" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>Upload Compressed File to Decompress:</label>
+        <input type="file" name="text_file" required>
+      </div>
+      <button type="submit">Decompress File</button>
+    </form>
+  </div>
+
+  <div class="algorithm">
+    <h2>Algorithm 2: JPEG Compression</h2>
+    <form action="/jpeg-compress" method="post" enctype="multipart/form-data">
+      <label for="jpeg_image">Upload Image:</label>
+      <input type="file" id="jpeg_image" name="image" accept="image/*" required>
+      <label for="jpeg_quality">JPEG Quality (0-100):</label>
+      <input type="number" id="jpeg_quality" name="jpeg_quality" min="0" max="100" required>
+      <button type="submit">Compress Image (JPEG)</button>
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
